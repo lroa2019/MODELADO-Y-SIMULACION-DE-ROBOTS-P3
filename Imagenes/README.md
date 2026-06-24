@@ -4,7 +4,7 @@
 
 A continuación se muestra el robot Wall-E visualizado en RViz con los TFs visibles y la interfaz de `joint_state_publisher_gui`.
 
-![RViz capture](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS/blob/main/Practica3/Imagenes/rviz_capture.png)
+![RViz capture](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS-P3/blob/main/Imagenes/rviz_capture.png)
 
 ![TFs capture](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS/blob/main/Practica3/Imagenes/TFs.png)
 
