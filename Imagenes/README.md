@@ -4,9 +4,9 @@
 
 A continuación se muestra el robot Wall-E visualizado en RViz con los TFs visibles y la interfaz de `joint_state_publisher_gui`.
 
-![RViz capture](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS-P3/blob/main/Imagenes/rviz_capture.png)
+![RViz capture](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS-P3/blob/main/Imagenes/Fotos/rviz_capture.png)
 
-![TFs capture](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS/blob/main/Practica3/Imagenes/TFs.png)
+![TFs capture](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS-P3/blob/main/Imagenes/Fotos/TFs.png)
 
 En la captura se puede observar:
 - El modelo 3D del robot Wall-E cargado correctamente en RViz.
@@ -14,7 +14,7 @@ En la captura se puede observar:
 - El frame fijo establecido en `base_footprint`, conforme a REP-105.
 - La interfaz de `joint_state_publisher_gui` en el panel derecho, mostrando todos los joints del robot: las cuatro ruedas, los joints del brazo y los joints de la pinza.
 
-[RViz video](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS/blob/main/Practica3/Imagenes/video_articulaciones_desplazadas.mp4)
+[RViz video](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS-P3/blob/main/Imagenes/Videos/video_articulaciones_desplazadas.mp4)
 
 [RViz video](https://github.com/user-attachments/assets/f8dbb5e3-9395-4b90-9a56-8fe1319e2d9d)
 
@@ -22,9 +22,9 @@ En la captura se puede observar:
 
 A continuación se muestra el árbol de transformadas entre los distintos links del robot Wall-E, obtenido mediante `tf2_tools` y el nodo `view_frames`.
 
-[TF Tree PDF](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS/blob/main/Practica3/Imagenes/tf_tree.pdf)
+[TF Tree PDF](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS-P3/blob/main/Imagenes/tf_tree.pdf)
 
-![TF Tree foto](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS/blob/main/Practica3/Imagenes/tf_tree.png)
+![TF Tree foto](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS-P3/blob/main/Imagenes/Fotos/tf_tree.png)
 
 El árbol tiene la siguiente estructura jerárquica:
 
@@ -42,27 +42,26 @@ El árbol tiene la siguiente estructura jerárquica:
 
 A continuación se muestran dos momentos de la recogida del cubo verde: el robot sujetándolo en el aire y depositándolo en su compartimento.
 
-![Cubo verde en el aire](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS/blob/main/Practica3/Imagenes/video_cubo_verde%20-%20frame_aire.jpg)
+![Cubo verde en el aire](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS-P3/blob/main/Imagenes/Fotos/video_cubo_verde%20-%20frame_aire.jpg)
 
-![Cubo verde depositado](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS/blob/main/Practica3/Imagenes/video_cubo_verde%20-%20frame_dentro.jpg)
+![Cubo verde depositado](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS-P3/blob/main/Imagenes/Fotos/video_cubo_verde%20-%20frame_dentro.jpg)
 
-[Cubo Verde Video](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS/blob/main/Practica3/Imagenes/video_cubo_verde.mp4)
+[Cubo Verde Video](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS-P3/blob/main/Imagenes/Videos/video_cubo_verde.mp4)
 
-[Cubo Verde Video](https://github.com/user-attachments/assets/d87fe476-37c8-46bc-ae26-d4b52eae002f)
-
+[Cubo Verde Video](https://github.com/user-attachments/assets/142bc84e-4bfd-40c6-bf96-12dd8e758d67)
 
 ### 3.2. Cubo azul
 
 A continuación se muestra el robot a punto de colocar el cubo azul sobre el cubo rojo.
 
-[Cubo Azul Video](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS/blob/main/Practica3/Imagenes/video_cubo_azul.mp4)
+[Cubo Azul Video](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS-P3/blob/main/Imagenes/Videos/video_cubo_azul.mp4)
 
-[Cubo Azul Video](https://github.com/user-attachments/assets/8c20e840-691d-4c33-a087-c83227dda65b)
+[Cubo Azul Video](https://github.com/user-attachments/assets/f8e31801-8ce9-44f2-a491-785a91414b4e)
 
-![Cubo azul sobre rojo](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS/blob/main/Practica3/Imagenes/foto_cubo_azul.png)
+![Cubo azul sobre rojo](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS-P3/blob/main/Imagenes/Fotos/foto_cubo_azul.png)
 
 ### 3.3. Avanzar 10 metros
 
-[Avanzar 10m Video](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS/blob/main/Practica3/Imagenes/video_avance_10m.mp4)
+[Avanzar 10m Video](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS-P3/blob/main/Imagenes/Videos/video_avance_10m.mp4)
 
-[Avanzar 10m Video](https://github.com/user-attachments/assets/7888811d-a32d-46c4-883d-d299eeb6f711)
+[Avanzar 10m Video](https://github.com/user-attachments/assets/25ee4b54-367b-46ef-91e8-8eddbca08e35)
