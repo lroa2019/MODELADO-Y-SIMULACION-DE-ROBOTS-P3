@@ -16,7 +16,7 @@ En la captura se puede observar:
 
 [RViz video](https://github.com/lroa2019/MODELADO-Y-SIMULACION-DE-ROBOTS/blob/main/Practica3/Imagenes/video_articulaciones_desplazadas.mp4)
 
-[RViz video](https://github.com/user-attachments/assets/eb4674b0-9214-4c21-b51d-076819966ba1)
+[RViz video](https://github.com/user-attachments/assets/f8dbb5e3-9395-4b90-9a56-8fe1319e2d9d)
 
 ## 2. Árbol de transformadas
 
