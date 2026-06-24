@@ -1,0 +1,11 @@
+# Default initial positions for walle's ros2_control fake system
+
+initial_positions:
+  arm_3_joint: 0
+  finger_x_negative_joint: 0
+  finger_x_positive_joint: 0
+  finger_y_negative_joint: 0
+  finger_y_positive_joint: 0
+  wrist_1_joint: 0
+  wrist_3_joint: 0
+  wrist_5_joint: 0

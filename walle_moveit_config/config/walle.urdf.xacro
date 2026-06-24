@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="walle">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import walle urdf file -->
+    <xacro:include filename="$(find walle_description)/robots/walle.urdf.xacro" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="walle.srdf" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="walle.ros2_control.xacro" />
+
+
+    <xacro:walle_ros2_control name="ScaraArm" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>
