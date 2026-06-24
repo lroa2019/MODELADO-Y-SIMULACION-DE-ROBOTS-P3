@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="walle_gripper">
+
+    <!-- ===================== GRIPPER PLATFORM ===================== -->
+
+    <joint name="gripper_platform_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -1.60293"/>
+      <parent link="arm_3_link"/>
+      <child link="gripper_platform_link"/>
+    </joint>
+
+    <link name="gripper_platform_link">
+      <collision name="gripper_platform_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <mesh filename="package://walle_description/meshes/dae/Cylinder.024.dae" scale="1.00000 1.00000 1.00000"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <inertia ixx="0.18664" ixy="0.00000" ixz="-0.00000"
+                 iyy="0.18664" iyz="0.00000" izz="0.37122"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <mass value="4.00000"/>
+      </inertial>
+
+      <visual name="gripper_platform">
+        <material name="GRIPPER_PLATFORM"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <mesh filename="package://walle_description/meshes/dae/Cylinder.024.dae" scale="1.00000 1.00000 1.00000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- ===================== FINGER X NEGATIVE ===================== -->
+
+    <joint name="finger_x_negative_joint" type="prismatic">
+      <limit lower="-0.20000" upper="0.00000" effort="5000.0" velocity="500.0"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.34431 0.00000 -0.21207"/>
+      <parent link="gripper_platform_link"/>
+      <child link="finger_x_negative_link"/>
+      <axis xyz="1.00000 0.00000 0.00000"/>
+    </joint>
+
+    <link name="finger_x_negative_link">
+      <collision name="finger_x_negative_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <box size="0.03000 0.10000 0.35000"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <inertia ixx="0.00552" ixy="0.00000" ixz="0.00000"
+                 iyy="0.00514" iyz="0.00000" izz="0.00045"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <mass value="0.50000"/>
+      </inertial>
+
+      <visual name="finger_x_negative">
+        <material name="FINGER"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <box size="0.03000 0.10000 0.35000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- ===================== FINGER X POSITIVE ===================== -->
+
+    <joint name="finger_x_positive_joint" type="prismatic">
+      <limit lower="0.00000" upper="0.20000" effort="5000.0" velocity="500.0"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.32569 0.00000 -0.21207"/>
+      <parent link="gripper_platform_link"/>
+      <child link="finger_x_positive_link"/>
+      <axis xyz="1.00000 0.00000 0.00000"/>
+    </joint>
+
+    <link name="finger_x_positive_link">
+      <collision name="finger_x_positive_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <box size="0.03000 0.10000 0.35000"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <inertia ixx="0.00552" ixy="0.00000" ixz="0.00000"
+                 iyy="0.00514" iyz="0.00000" izz="0.00045"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <mass value="0.50000"/>
+      </inertial>
+
+      <visual name="finger_x_positive">
+        <material name="FINGER"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <box size="0.03000 0.10000 0.35000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- ===================== FINGER Y NEGATIVE ===================== -->
+
+    <joint name="finger_y_negative_joint" type="prismatic">
+      <limit lower="-0.20000" upper="0.00000" effort="5000.0" velocity="500.0"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00931 0.33500 -0.21207"/>
+      <parent link="gripper_platform_link"/>
+      <child link="finger_y_negative_link"/>
+      <axis xyz="0.00000 1.00000 0.00000"/>
+    </joint>
+
+    <link name="finger_y_negative_link">
+      <collision name="finger_y_negative_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <box size="0.10000 0.03000 0.35000"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <inertia ixx="0.00514" ixy="0.00000" ixz="0.00000"
+                 iyy="0.00552" iyz="0.00000" izz="0.00045"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <mass value="0.50000"/>
+      </inertial>
+
+      <visual name="finger_y_negative">
+        <material name="FINGER"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <box size="0.10000 0.03000 0.35000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- ===================== FINGER Y POSITIVE ===================== -->
+
+    <joint name="finger_y_positive_joint" type="prismatic">
+      <limit lower="0.00000" upper="0.20000" effort="5000.0" velocity="500.0"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00931 -0.33500 -0.21207"/>
+      <parent link="gripper_platform_link"/>
+      <child link="finger_y_positive_link"/>
+      <axis xyz="0.00000 1.00000 0.00000"/>
+    </joint>
+
+    <link name="finger_y_positive_link">
+      <collision name="finger_y_positive_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <box size="0.10000 0.03000 0.35000"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <inertia ixx="0.00514" ixy="0.00000" ixz="0.00000"
+                 iyy="0.00552" iyz="0.00000" izz="0.00045"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <mass value="0.50000"/>
+      </inertial>
+
+      <visual name="finger_y_positive">
+        <material name="FINGER"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+          <box size="0.10000 0.03000 0.35000"/>
+        </geometry>
+      </visual>
+    </link>
+
+  </xacro:macro>
+
+</robot>

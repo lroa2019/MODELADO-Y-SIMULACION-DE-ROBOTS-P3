@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="walle_wheel" params="prefix parent xyz_axis xyz_wheel axis mesh_filename">
+
+    <!--WHEEL AXIS-->
+    <joint name="${prefix}_axis_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="${xyz_axis}"/>
+      <parent link="${parent}"/>
+      <child link="${prefix}_axis_link"/>
+    </joint>
+
+    <link name="${prefix}_axis_link">
+      <collision name="${prefix}_axis_collision">
+        <origin rpy="1.57080 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+        <geometry>
+          <mesh filename="package://walle_description/meshes/dae/${mesh_filename}" scale="1.00000 1.00000 1.00000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="1.65176" ixy="0.09516" ixz="-1.35714" 
+                iyy="2.78195" iyz="0.11359" 
+                izz="1.16992"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+        <mass value="7.00000"/>
+      </inertial>
+      <visual name="${prefix}_axis_visual">
+        <material name="EJE"/>
+        <origin rpy="1.57080 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+        <geometry>
+          <mesh filename="package://walle_description/meshes/dae/${mesh_filename}" scale="1.00000 1.00000 1.00000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <!--WHEEL-->
+    <joint name="${prefix}_joint" type="continuous">
+      <origin rpy="1.57080 0.00000 0.00000" xyz="${xyz_wheel}"/>
+      <parent link="${prefix}_axis_link"/>
+      <child link="${prefix}_link"/>
+      <limit lower="0" upper="0" effort="1000.0" velocity="100.0"/>
+      <dynamics damping="0" friction="0.01"/>
+      <axis xyz="${axis}"/>
+    </joint>
+
+    <link name="${prefix}_link">
+      <collision name="${prefix}_collision">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+           <cylinder radius="0.30000" length="0.30000"/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.000</mu>
+              <mu2>1.000</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <inertial>
+        <inertia ixx="0.15000" ixy="0.00000" ixz="0.00000" 
+                iyy="0.22500" iyz="-0.00000" 
+                izz="0.15000"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+        <mass value="10.00000"/>
+      </inertial>
+      <visual name="${prefix}_wheel">
+        <material name="RUEDAS"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.30000" length="0.30000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <transmission name="${prefix}_transmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${prefix}_joint">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${prefix}_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <gazebo reference="${prefix}_link">
+      <mu>5.000</mu>
+      <mu2>5.000</mu2>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>

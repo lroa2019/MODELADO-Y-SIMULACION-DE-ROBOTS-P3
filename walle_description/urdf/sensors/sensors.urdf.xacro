@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:include filename="$(find walle_description)/urdf/sensors/camera.urdf.xacro"/>
+  <xacro:include filename="$(find walle_description)/urdf/sensors/imu_sensor.urdf.xacro"/>
+
+  <xacro:macro name="walle_sensors">
+
+    <!-- IMU -->
+    <xacro:imu
+      parent="base_link"
+      prefix="base_"
+      node_namespace=""
+      node_name="imu">
+
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+
+    </xacro:imu>
+
+    <!-- Cámara frontal -->
+    <xacro:camera
+      parent="base_link"
+      prefix="front_"
+      node_namespace=""
+      node_name="front_camera">
+
+      <origin xyz="1.05 0 0.10" rpy="0 0 0"/>
+
+    </xacro:camera>
+
+    <!-- Cámara unida al gripper -->
+    <xacro:camera
+      parent="gripper_platform_link"
+      prefix="arm_"
+      node_namespace=""
+      node_name="arm_camera">
+
+      <origin xyz="0.0 0.0 -0.08" rpy="0 1.5708 0"/>
+
+    </xacro:camera>
+
+  </xacro:macro>
+
+</robot>

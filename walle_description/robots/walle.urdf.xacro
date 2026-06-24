@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<robot name="walle" xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find walle_description)/urdf/base/robot_base.urdf.xacro"/>
+  <xacro:include filename="$(find walle_description)/urdf/wheels/walle_wheel.urdf.xacro"/>
+  <xacro:include filename="$(find walle_description)/urdf/arm/scara.urdf.xacro"/>
+  <xacro:include filename="$(find walle_description)/urdf/arm/gripper.urdf.xacro"/>
+  <xacro:include filename="$(find walle_description)/urdf/sensors/sensors.urdf.xacro"/>
+  <xacro:include filename="$(find walle_description)/urdf/ros2_control.urdf.xacro"/>
+
+  <xacro:arg name="config_controllers" default="$(find walle_description)/config/walle_controllers.yaml"/>
+
+  <material name="ARM_1">
+    <color rgba="0.28235 0.28235 0.28235 1.00000"/>
+  </material>
+  <material name="ARM_4">
+    <color rgba="0.02745 0.02745 0.02745 1.00000"/>
+  </material>
+  <material name="CHASIS">
+    <color rgba="1.00000 0.51765 0.07451 1.00000"/>
+  </material>
+  <material name="EJE">
+    <color rgba="0.38431 0.07059 0.05098 1.00000"/>
+  </material>
+  <material name="FINGER">
+    <color rgba="0.53725 0.53725 0.53725 1.00000"/>
+  </material>
+  <material name="GRIPPER_PLATFORM">
+    <color rgba="0.13333 0.13333 0.13333 1.00000"/>
+  </material>
+  <material name="RUEDAS">
+    <color rgba="0.48627 0.38824 0.30196 1.00000"/>
+  </material>
+
+  <xacro:walle_base/>
+
+  <!--WHEELS-->
+  <xacro:walle_wheel 
+    prefix="wheel_left_back" 
+    parent="base_link" 
+    xyz_axis="-1.25352 0.65803 -0.67705"
+    xyz_wheel="-0.34892 0.29088 -0.41653"
+    axis="0 0 -1"
+    mesh_filename="Cylinder.013.dae"
+  />
+    
+  <xacro:walle_wheel 
+    prefix="wheel_left_front"
+    parent="base_link" 
+    xyz_axis="1.27215 0.65803 -0.67705"
+    xyz_wheel="0.34892 0.29088 -0.41653"
+    axis="0 0 -1"
+    mesh_filename="Cylinder.010.dae"
+  />
+  
+  <xacro:walle_wheel 
+    prefix="wheel_right_back"
+    parent="base_link" 
+    xyz_axis="-1.25352 -0.65803 -0.67705"
+    xyz_wheel="-0.34892 -0.29088 -0.41653"
+    axis="0 0 1"
+    mesh_filename="Cylinder.004.dae"
+  />
+
+  <xacro:walle_wheel
+    prefix="wheel_right_front"
+    parent="base_link" 
+    xyz_axis="1.27215 -0.65803 -0.67705"
+    xyz_wheel="0.34892 -0.29088 -0.41653"
+    axis="0 0 1"
+    mesh_filename="Cylinder.009.dae"
+  />
+
+  <xacro:walle_scara/>
+  <xacro:walle_gripper/>
+  <xacro:walle_sensors/>
+  <xacro:arg name="update_rate" default="100"/>
+  <xacro:ros2_control/>
+
+</robot>

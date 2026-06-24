@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="walle_scara">
+
+    <joint name="arm_base_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="1.00000 -0.00000 0.45000"/>
+      <parent link="cover_base_link"/>
+      <child link="arm_base_link"/>
+    </joint>
+
+    <link name="arm_base_link">
+      <collision name="arm_base_collision">
+        <geometry>
+          <mesh filename="package://walle_description/meshes/dae/Cylinder.016.dae" scale="1 1 1"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="1.86899" ixy="0" ixz="0" iyy="1.86899" iyz="0" izz="0.51421"/>
+        <mass value="10.00000"/>
+      </inertial>
+      <visual name="arm_base">
+        <material name="GRIPPER_PLATFORM"/>
+        <geometry>
+          <mesh filename="package://walle_description/meshes/dae/Cylinder.016.dae" scale="1 1 1"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="wrist_1_joint" type="revolute">
+      <limit lower="-3.14000" upper="3.14000" effort="5000.0" velocity="500.0"/>
+      <origin xyz="0.00000 0.00000 1.20000" rpy="0.00000 0.00000 0.00000"/>
+      <parent link="arm_base_link"/>
+      <child link="wrist_1_link"/>
+      <axis xyz="0.00000 0.00000 1.00000"/>
+    </joint>
+
+    <link name="wrist_1_link">
+      <collision name="wrist_1_collision">
+        <geometry>
+          <cylinder radius="0.20000" length="0.35000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.01010" ixy="0" ixz="0" iyy="0.01010" iyz="0" izz="0.01000"/>
+        <mass value="0.50000"/>
+      </inertial>
+      <visual name="wrist_1">
+        <material name="ARM_1"/>
+        <geometry>
+          <cylinder radius="0.20000" length="0.35000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="arm_1_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.75000 0.00000 0.00000"/>
+      <parent link="wrist_1_link"/>
+      <child link="arm_1_link"/>
+    </joint>
+
+    <link name="arm_1_link">
+      <collision name="arm_1_collision">
+        <geometry>
+          <box size="1.50000 0.40000 0.35000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.02354" ixy="0" ixz="0" iyy="0.19771" iyz="0" izz="0.20083"/>
+        <mass value="1.00000"/>
+      </inertial>
+      <visual name="arm_1">
+        <material name="ARM_1"/>
+        <geometry>
+          <box size="1.50000 0.40000 0.35000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="wrist_2_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.75000 0.00000 0.00000"/>
+      <parent link="arm_1_link"/>
+      <child link="wrist_2_link"/>
+    </joint>
+
+    <link name="wrist_2_link">
+      <collision name="wrist_2_collision">
+        <geometry>
+          <cylinder radius="0.20000" length="0.35000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.01010" ixy="0" ixz="0" iyy="0.01010" iyz="0" izz="0.01000"/>
+        <mass value="0.50000"/>
+      </inertial>
+      <visual name="wrist_2">
+        <material name="ARM_1"/>
+        <geometry>
+          <cylinder radius="0.20000" length="0.35000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="wrist_3_joint" type="revolute">
+      <limit lower="-4.28000" upper="1.14000" effort="5000.0" velocity="500.0"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.35000"/>
+      <parent link="wrist_2_link"/>
+      <child link="wrist_3_link"/>
+      <axis xyz="0.00000 0.00000 1.00000"/>
+    </joint>
+
+    <link name="wrist_3_link">
+      <collision name="wrist_3_collision">
+        <geometry>
+          <cylinder radius="0.15000" length="0.35000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.00792" ixy="0" ixz="0" iyy="0.00792" iyz="0" izz="0.00563"/>
+        <mass value="0.50000"/>
+      </inertial>
+      <visual name="wrist_3">
+        <material name="GRIPPER_PLATFORM"/>
+        <geometry>
+          <cylinder radius="0.15000" length="0.35000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="arm_2_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.75000 0.00000"/>
+      <parent link="wrist_3_link"/>
+      <child link="arm_2_link"/>
+    </joint>
+
+    <link name="arm_2_link">
+      <collision name="arm_2_collision">
+        <geometry>
+          <box size="0.30000 1.50000 0.35000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.19771" ixy="0" ixz="0" iyy="0.01771" iyz="0" izz="0.19500"/>
+        <mass value="1.00000"/>
+      </inertial>
+      <visual name="arm_2">
+        <material name="GRIPPER_PLATFORM"/>
+        <geometry>
+          <box size="0.30000 1.50000 0.35000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="wrist_4_joint" type="fixed">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.75000 0.00000"/>
+      <parent link="arm_2_link"/>
+      <child link="wrist_4_link"/>
+    </joint>
+
+    <link name="wrist_4_link">
+      <collision name="wrist_4_collision">
+        <geometry>
+          <cylinder radius="0.15000" length="0.35000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.00792" ixy="0" ixz="0" iyy="0.00792" iyz="0" izz="0.00563"/>
+        <mass value="0.50000"/>
+      </inertial>
+      <visual name="wrist_4">
+        <material name="GRIPPER_PLATFORM"/>
+        <geometry>
+          <cylinder radius="0.15000" length="0.35000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="wrist_5_joint" type="revolute">
+      <limit lower="-3.14000" upper="3.14000" effort="5000.0" velocity="500.0"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+      <parent link="wrist_4_link"/>
+      <child link="wrist_5_link"/>
+      <axis xyz="0.00000 0.00000 1.00000"/>
+    </joint>
+
+    <link name="wrist_5_link">
+      <collision name="wrist_5_collision">
+        <geometry>
+          <cylinder radius="0.10000" length="0.75000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.02469" ixy="0" ixz="0" iyy="0.02469" iyz="0" izz="0.00250"/>
+        <mass value="0.50000"/>
+      </inertial>
+      <visual name="wrist_5">
+        <material name="ARM_1"/>
+        <geometry>
+          <cylinder radius="0.10000" length="0.75000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="arm_3_joint" type="prismatic">
+      <limit lower="-2.60000" upper="0.00000" effort="5000.0" velocity="500.0"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.97704"/>
+      <parent link="wrist_5_link"/>
+      <child link="arm_3_link"/>
+      <axis xyz="0.00000 0.00000 1.00000"/>
+    </joint>
+
+    <link name="arm_3_link">
+      <collision name="arm_3_collision">
+        <geometry>
+          <cylinder radius="0.07500" length="3.20000"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia ixx="0.85474" ixy="0" ixz="0" iyy="0.85474" iyz="0" izz="0.00281"/>
+        <mass value="1.00000"/>
+      </inertial>
+      <visual name="arm_3">
+        <material name="ARM_4"/>
+        <geometry>
+          <cylinder radius="0.07500" length="3.20000"/>
+        </geometry>
+      </visual>
+    </link>
+
+  </xacro:macro>
+
+</robot>

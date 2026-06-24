@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="walle_base">
+
+    <!-- ================= BASE FOOTPRINT ================= -->
+
+    <link name="base_footprint"/>
+
+    <joint name="base_footprint_joint" type="fixed">
+      <parent link="base_footprint"/>
+      <child link="base_link"/>
+      <origin xyz="0 0 0.67705" rpy="0 0 0"/>
+    </joint>
+
+    <!-- ================= BASE LINK ================= -->
+
+    <link name="base_link">
+      <collision name="base_collision">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="2.00000 1.20000 0.60000"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <inertia ixx="15.00000" ixy="0.00000" ixz="0.00000"
+                 iyy="36.33333" iyz="0.00000" izz="45.33333"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="100.00000"/>
+      </inertial>
+
+      <visual name="base">
+        <material name="CHASIS"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="2.00000 1.20000 0.60000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- ================= COVER BASE ================= -->
+
+    <joint name="cover_base_joint" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0 0.35000"/>
+      <parent link="base_link"/>
+      <child link="cover_base_link"/>
+    </joint>
+
+    <link name="cover_base_link">
+      <collision name="cover_base_collision">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="3.50000 2.00000 0.10000"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <inertia ixx="6.68333" ixy="0.00000" ixz="0.00000"
+                 iyy="20.43333" iyz="0.00000" izz="27.08333"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="20.00000"/>
+      </inertial>
+
+      <visual name="cover_base">
+        <material name="CHASIS"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="3.50000 2.00000 0.10000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- ================= BOX 1 ================= -->
+
+    <joint name="box_1_base_joint" type="fixed">
+      <origin rpy="0 0 0" xyz="0.20000 0.00000 0.25000"/>
+      <parent link="cover_base_link"/>
+      <child link="box_1_base_link"/>
+    </joint>
+
+    <link name="box_1_base_link">
+      <collision name="box_1_base_collision">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="0.10000 2.00000 0.40000"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <inertia ixx="0.34667" ixy="0.00000" ixz="0.00000"
+                 iyy="0.01417" iyz="0.00000" izz="0.33417"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="1.00000"/>
+      </inertial>
+
+      <visual name="box_1_base">
+        <material name="CHASIS"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="0.10000 2.00000 0.40000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- ================= BOX 2 ================= -->
+
+    <joint name="box_2_base_joint" type="fixed">
+      <origin rpy="0 0 0" xyz="-0.75000 -0.95000 0.25000"/>
+      <parent link="cover_base_link"/>
+      <child link="box_2_base_link"/>
+    </joint>
+
+    <link name="box_2_base_link">
+      <collision name="box_2_base_collision">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="2.00000 0.10000 0.40000"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <inertia ixx="0.01417" ixy="0.00000" ixz="0.00000"
+                 iyy="0.34667" iyz="0.00000" izz="0.33417"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="1.00000"/>
+      </inertial>
+
+      <visual name="box_2_base">
+        <material name="CHASIS"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="2.00000 0.10000 0.40000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- ================= BOX 3 ================= -->
+
+    <joint name="box_3_base_joint" type="fixed">
+      <origin rpy="0 0 0" xyz="-1.70000 0.00000 0.25000"/>
+      <parent link="cover_base_link"/>
+      <child link="box_3_base_link"/>
+    </joint>
+
+    <link name="box_3_base_link">
+      <collision name="box_3_base_collision">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="0.10000 2.00000 0.40000"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <inertia ixx="0.34667" ixy="0.00000" ixz="0.00000"
+                 iyy="0.01417" iyz="0.00000" izz="0.33417"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="1.00000"/>
+      </inertial>
+
+      <visual name="box_3_base">
+        <material name="CHASIS"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="0.10000 2.00000 0.40000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- ================= BOX 4 ================= -->
+
+    <joint name="box_4_base_joint" type="fixed">
+      <origin rpy="0 0 0" xyz="-0.75000 0.95000 0.25000"/>
+      <parent link="cover_base_link"/>
+      <child link="box_4_base_link"/>
+    </joint>
+
+    <link name="box_4_base_link">
+      <collision name="box_4_base_collision">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="2.00000 0.10000 0.40000"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <inertia ixx="0.01417" ixy="0.00000" ixz="0.00000"
+                 iyy="0.34667" iyz="0.00000" izz="0.33417"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="1.00000"/>
+      </inertial>
+
+      <visual name="box_4_base">
+        <material name="CHASIS"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="2.00000 0.10000 0.40000"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <gazebo reference="base_link">
+      <self_collide>true</self_collide>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>
